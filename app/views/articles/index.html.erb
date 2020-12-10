@@ -1,29 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div>
+  <%= render 'navigations/top' %>
+  <%# end of navigation %>
+  <div class="text-6xl font-bold capitalize text-center py-8 border-b-2">latest</div>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to article do %>
+        <div class="lg:flex lg:justify-center">
+          <div class="mx-6 px-6 py-8 space-y-3 text-black lg:m-6 lg:shadow-2xl lg:rounded-lg lg:w-2/3 lg:border lg:border-gray-300">
+            <div class="hidden lg:flex space-x-8">
+            <img src="https://images.unsplash.com/photo-1607453998792-051fed7d2631?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" alt="" class="h-16 w-16 rounded-full object-cover object-center">
+              <div class="items-center">
+                <div>brian ngeywo</div>
+                <div class="text-gray-600">dec 10, 2020</div>
+              </div>
+            </div>
+            <div>    
+              <div class="font-bold capitalize text-4xl lg:text-3xl lg:font-semibold"><%= article.title %></div>
+            </div>
+            <div class="hidden lg:block">
+              <%= truncate(article.body, length: 180) %>
+            </div>
+            <div class="text-3xl space-y-2 capitalize lg:hidden">
+              <div>brian ngeywo</div>
+              <div class="text-gray-600">dec 10, 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:flex lg:justify-center">
+          <div class="mx-6 px-6 py-8 space-y-3 text-black lg:m-6 lg:shadow-2xl lg:rounded-lg lg:w-2/3 lg:border lg:border-gray-300">
+            <div class="hidden lg:flex space-x-8">
+            <img src="https://images.unsplash.com/photo-1607453998792-051fed7d2631?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" alt="" class="h-16 w-16 rounded-full object-cover object-center">
+              <div class="items-center">
+                <div>brian ngeywo</div>
+                <div class="text-gray-600">dec 10, 2020</div>
+              </div>
+            </div>
+            <div>    
+              <div class="font-bold capitalize text-4xl lg:text-3xl lg:font-semibold"><%= article.title %></div>
+            </div>
+            <div class="hidden lg:block">
+              <%= truncate(article.body, length: 180) %>
+            </div>
+            <div class="text-3xl space-y-2 capitalize lg:hidden">
+              <div>brian ngeywo</div>
+              <div class="text-gray-600">dec 10, 2020</div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+
+</div>
+
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>

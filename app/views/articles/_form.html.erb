@@ -1,27 +1,41 @@
-<%= form_with(model: article, local: true) do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div class="">
+  <%= render 'navigations/top' %>
+  <%# end of navigation %>
+  <%= form_with(model: article, local: true) do |form| %>
+    <% if article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-        <% article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <ul>
+          <% article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="text-4xl py-6 px-12 capitalize font-medium lg:text-2xl">
+        <%= link_to :back do %>
+          <div>go back</div>
         <% end %>
-      </ul>
+    </div>
+    <div class="px-12 text-4xl lg:text-2xl space-y-8 my-12">
+      <div class="lg:flex space-x-6">
+        <%= form.label :title, class:"font-bold"  %>
+        <br>
+        <%= form.text_field :title, class: "p-6 border border-gray-600 rounded-md my-4 h-auto lg:p-2"  %>
+      </div>
+
+      <div class="lg:flex space-x-6">
+        <%= form.label :body , class:"font-bold" %><br>
+        <%= form.text_area :body , class: "p-6 border border-gray-600 rounded-md my-4 w-full h-96 lg:p-2"  %>
+      </div>
+
+      <div class="bg-green-700 p-6 text-white grid">
+        <button class="bg-transparent capitalize my-2 text-5xl lg:text-2xl">post article </button>
+      </div>
     </div>
   <% end %>
+  <p id="notice"><%= notice %></p>
+</div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<br>

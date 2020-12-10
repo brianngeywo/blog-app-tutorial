@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <%= render 'navigations/top' %>
+  <%# end of navigation %>
+        <div class="px-12 py-4 lg:py-6 lg:flex lg:justify-center">
+        <div class=" lg:w-2/3 space-y-16 lg:space-y-8">
+          <div>    
+              <div class="font-semibold text-7xl capitalize lg:text-4xl lg:font-normal"><%= @article.title %></div>
+            </div>
+            <div class="flex space-x-16 items-center lg:space-x-3 lg:px-6 lg:my-6">    
+              <img src="https://miro.medium.com/max/1050/0*lbJC0ZcTvWSgKNKM" alt="" class="object-cover object-center rounded-full h-32 lg:h-12 w-32 lg:w-12">
+              <div class="text-4xl lg:text-base space-y-2 lg:space-y-0 capitalize">
+                <div>brian ngeywo</div>
+                <div class="text-gray-600">dec 10, 2020</div>
+              </div>
+            </div>
+            <div class="text-4xl lg:text-lg"><%= @article.body %></div>
+          </div>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
